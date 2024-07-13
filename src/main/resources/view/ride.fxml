@@ -1,0 +1,57 @@
+<?xml version="1.0" encoding="UTF-8"?>
+
+<?import com.jfoenix.controls.JFXButton?>
+<?import javafx.scene.control.Label?>
+<?import javafx.scene.control.TextArea?>
+<?import javafx.scene.control.TextField?>
+<?import javafx.scene.image.Image?>
+<?import javafx.scene.image.ImageView?>
+<?import javafx.scene.layout.AnchorPane?>
+<?import javafx.scene.shape.Rectangle?>
+<?import javafx.scene.text.Font?>
+
+<AnchorPane fx:id="root" prefHeight="700.0" prefWidth="1168.0" style="-fx-background-color: #27323A;" xmlns="http://javafx.com/javafx/21" xmlns:fx="http://javafx.com/fxml/1" fx:controller="lk.Ijse.controller.rideController">
+   <children>
+      <Rectangle arcHeight="53.0" arcWidth="59.0" fill="#eaf5ff0a" height="648.0" layoutX="58.0" layoutY="38.0" stroke="#9e9e9e" strokeType="INSIDE" strokeWidth="3.0" width="468.0" />
+      <Label alignment="CENTER" contentDisplay="CENTER" layoutX="191.0" layoutY="49.0" prefHeight="38.0" prefWidth="200.0" text="Request A Ride" textFill="#f2b600">
+         <font>
+            <Font name="Georgia" size="23.0" />
+         </font>
+      </Label>
+      <TextField fx:id="txtcusContact" layoutX="87.0" layoutY="259.0" onAction="#txtCustomerOnAction" prefHeight="30.0" prefWidth="200.0" promptText="Enter CUSTOMER CONTACT" />
+      <Rectangle arcHeight="5.0" arcWidth="5.0" fill="#cfdce78a" height="38.0" layoutX="307.0" layoutY="255.0" stroke="#5e5656" strokeType="INSIDE" width="200.0" />
+      <Label fx:id="lblcustomerName" alignment="CENTER" layoutX="307.0" layoutY="255.0" prefHeight="38.0" prefWidth="200.0" textFill="#544b59">
+         <font>
+            <Font name="Arial Bold" size="14.0" />
+         </font>
+      </Label>
+      <Label layoutX="307.0" layoutY="227.0" prefHeight="26.0" prefWidth="124.0" text="CUSTOMER NAME" textFill="#8e487e">
+         <font>
+            <Font name="Calibri Bold" size="14.0" />
+         </font>
+      </Label>
+      <TextArea fx:id="txtCusAddress" layoutX="91.0" layoutY="350.0" prefHeight="62.0" prefWidth="397.0" promptText="enter customer location" />
+      <Label layoutX="91.0" layoutY="323.0" prefHeight="26.0" prefWidth="124.0" text="CUSTOMER Address" textFill="#8e487e">
+         <font>
+            <Font name="Calibri Bold" size="14.0" />
+         </font>
+      </Label>
+      <Label layoutX="87.0" layoutY="232.0" prefHeight="26.0" prefWidth="124.0" text="CUSTOMER Contact" textFill="#8e487e">
+         <font>
+            <Font name="Calibri Bold" size="14.0" />
+         </font>
+      </Label>
+      <JFXButton buttonType="RAISED" layoutX="102.0" layoutY="607.0" onAction="#btnRequestRideOnAction" prefHeight="54.0" prefWidth="379.0" style="-fx-border-color: #8e487e; -fx-border-radius: 5,5,4; -fx-background-color: linear-gradient(90deg, rgba(255,155,122,1) 11%, rgba(226,190,164,1) 33%, rgba(172,255,242,1) 40%, rgba(165,201,255,1) 71%);;" stylesheets="@../icons/PLACEORDER.CSS" text="Request Ride" textFill="WHITE">
+         <font>
+            <Font name="Cambria Bold" size="18.0" />
+         </font>
+         <graphic>
+            <ImageView fitHeight="26.0" fitWidth="34.0" pickOnBounds="true" preserveRatio="true">
+               <image>
+                  <Image url="@../icons/icons8-ride-50%20(2).png" />
+               </image>
+            </ImageView>
+         </graphic>
+      </JFXButton>
+   </children>
+</AnchorPane>

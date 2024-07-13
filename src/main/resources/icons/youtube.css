@@ -1,0 +1,17 @@
+.white-color{
+    -fx-background-color: #fff;
+}
+.transparent{
+-fx-background-color: rgba(0,0,0,0);
+}
+.search-bar{
+    -fx-border-width: 1;
+    -fx-border-color: #686868;
+}
+.selected{
+    -fx-background-color: #F4F4F4;
+    -fx-border-width: 0 0 0 5;
+}
+.over:hover{
+    -fx-background-color: #F4F4F4;
+}

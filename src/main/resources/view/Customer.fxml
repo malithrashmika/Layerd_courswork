@@ -1,0 +1,151 @@
+<?xml version="1.0" encoding="UTF-8"?>
+
+<?import com.jfoenix.controls.JFXButton?>
+<?import java.lang.String?>
+<?import java.net.URL?>
+<?import javafx.scene.Cursor?>
+<?import javafx.scene.control.Label?>
+<?import javafx.scene.control.TableColumn?>
+<?import javafx.scene.control.TableView?>
+<?import javafx.scene.control.TextField?>
+<?import javafx.scene.image.Image?>
+<?import javafx.scene.image.ImageView?>
+<?import javafx.scene.layout.AnchorPane?>
+<?import javafx.scene.layout.HBox?>
+<?import javafx.scene.shape.Rectangle?>
+<?import javafx.scene.text.Font?>
+
+<AnchorPane fx:id="root" prefHeight="700.0" prefWidth="1168.0" style="-fx-background-color: #2D2424;" xmlns="http://javafx.com/javafx/21" xmlns:fx="http://javafx.com/fxml/1" fx:controller="lk.Ijse.controller.customerController">
+    <children>
+      <Rectangle arcHeight="53.0" arcWidth="59.0" fill="#eaf5ff0a" height="648.0" layoutX="38.0" layoutY="26.0" stroke="#9e9e9e" strokeType="INSIDE" strokeWidth="3.0" width="416.0" />
+        <TextField fx:id="txtId" layoutX="113.0" layoutY="136.0" onKeyReleased="#txtCustomerIDOnKeyReleased" prefHeight="34.0" prefWidth="266.0" promptText="Customer ID" style="-fx-border-color: #8B7E74; -fx-border-radius: 1em; -fx-background-radius: 1em;" styleClass="textField" stylesheets="@../icons/mytextField.css">
+         <font>
+            <Font name="Arial Bold" size="12.0" />
+         </font></TextField>
+        <TextField fx:id="txtName" layoutX="113.0" layoutY="222.0" onKeyReleased="#txtNameOnKeyReleased" prefHeight="34.0" prefWidth="266.0" promptText="Customer Name" style="-fx-border-color: #8B7E74; -fx-border-radius: 1em; -fx-background-radius: 1em;" styleClass="textField" stylesheets="@../icons/mytextField.css">
+         <font>
+            <Font name="Arial Bold" size="12.0" />
+         </font></TextField>
+        <TextField fx:id="txtTel" layoutX="112.0" layoutY="295.0" onKeyReleased="#txtContactOnKeyReleased" prefHeight="34.0" prefWidth="266.0" promptText="Customer Contact" style="-fx-border-color: #8B7E74; -fx-border-radius: 1em; -fx-background-radius: 1em;" styleClass="textField" stylesheets="@../icons/mytextField.css">
+         <font>
+            <Font name="Arial Bold" size="12.0" />
+         </font></TextField>
+        <TextField fx:id="txtemail" layoutX="113.0" layoutY="371.0" onKeyReleased="#txtEmailOnKeyReleased" prefHeight="34.0" prefWidth="266.0" promptText="Customer Email" style="-fx-border-color: #8B7E74; -fx-border-radius: 1em; -fx-background-radius: 1em;" styleClass="textField" stylesheets="@../icons/mytextField.css">
+         <font>
+            <Font name="Arial Bold" size="12.0" />
+         </font></TextField>
+      <TableView fx:id="tblCustomer" editable="true" layoutX="510.0" layoutY="318.0" prefHeight="330.0" prefWidth="626.0" style="-fx-background-color: #;">
+         <columns>
+            <TableColumn fx:id="colId" prefWidth="116.7999267578125" text="Customer ID" />
+            <TableColumn fx:id="colName" prefWidth="178.39996337890625" text="Name" />
+            <TableColumn fx:id="colTel" prefWidth="134.39990234375" text="Contact Number" />
+            <TableColumn fx:id="colemail" prefWidth="189.60009765625" text="Email" />
+         </columns>
+         <styleClass>
+            <String fx:value="table-header" />
+            <String fx:value="table-row-cell" />
+            <String fx:value="table-view" />
+         </styleClass>
+         <stylesheets>
+            <URL value="@../icons/Tablechatstyling.css" />
+            <URL value="@../icons/fullpackstyling.css" />
+         </stylesheets>
+      </TableView>
+      <JFXButton id="button" fx:id="btnSave" buttonType="RAISED" layoutX="85.0" layoutY="505.0" onAction="#btnSaveOnAction" prefHeight="34.0" prefWidth="118.0" style="-fx-background-color: #38E54D;" text="Save" textFill="WHITE" textOverrun="LEADING_WORD_ELLIPSIS" wrapText="true">
+         <font>
+            <Font name="Arial Bold" size="18.0" />
+         </font>
+         <graphic>
+            <ImageView fitHeight="24.0" fitWidth="23.0">
+               <image>
+                  <Image url="@../../../../../../../resorces/icons8-add-user-male-30.png" />
+               </image>
+            </ImageView>
+         </graphic>
+         <cursor>
+            <Cursor fx:constant="HAND" />
+         </cursor>
+      </JFXButton>
+      <JFXButton id="button" fx:id="btnClear" buttonType="RAISED" layoutX="85.0" layoutY="567.0" onAction="#btnClearOnAction" prefHeight="22.0" prefWidth="118.0" style="-fx-background-color: #7077A1;" text="Clear" textFill="WHITE">
+         <font>
+            <Font name="Arial Bold" size="18.0" />
+         </font>
+         <graphic>
+            <ImageView fitHeight="24.0" fitWidth="29.0">
+               <image>
+                  <Image url="@../../../../../../../resorces/icons8-clear-30.png" />
+               </image>
+            </ImageView>
+         </graphic>
+         <cursor>
+            <Cursor fx:constant="HAND" />
+         </cursor>
+      </JFXButton>
+      <JFXButton id="button" fx:id="btnDelete" buttonType="RAISED" layoutX="288.0" layoutY="567.0" onAction="#btnDeleteOnAction" prefHeight="40.0" prefWidth="118.0" style="-fx-background-color: #FF004D;" text="Delete" textFill="#f7f7f7">
+         <font>
+            <Font name="Arial Bold" size="18.0" />
+         </font>
+         <cursor>
+            <Cursor fx:constant="HAND" />
+         </cursor>
+         <graphic>
+            <ImageView fitHeight="22.0" fitWidth="23.0">
+               <image>
+                  <Image url="@../icons/icons8-delete-50.png" />
+               </image>
+            </ImageView>
+         </graphic>
+      </JFXButton>
+      <JFXButton layoutX="288.0" layoutY="505.0" onAction="#btnUpdateOnaction" prefHeight="35.0" prefWidth="118.0" style="-fx-background-color: #FF9800;" stylesheets="@../icons/button.css" text="Update" textFill="WHITE">
+         <font>
+            <Font name="Arial Bold" size="18.0" />
+         </font>
+         <graphic>
+            <ImageView fitHeight="27.0" fitWidth="25.0">
+               <image>
+                  <Image url="@../icons/icons8-clear-30%20(1).png" />
+               </image>
+            </ImageView>
+         </graphic>
+      </JFXButton>
+      <ImageView fitHeight="184.0" fitWidth="219.0" layoutX="758.0" layoutY="104.0" pickOnBounds="true" preserveRatio="true">
+         <image>
+            <Image url="@../icons/—Pngtree—colorful%20cocktail%20martini%20glass_3570052.png" />
+         </image>
+      </ImageView>
+      <HBox layoutX="695.0" layoutY="271.0">
+         <children>
+            <Label prefHeight="34.0" prefWidth="95.0" text="COCKT" textFill="#ffc74e" translateY="-3.0">
+               <font>
+                  <Font name="Sitka Text" size="29.0" />
+               </font>
+            </Label>
+            <Label prefHeight="33.0" prefWidth="132.0" text="AIL  HUB" textFill="#717100" translateY="-3.0">
+               <font>
+                  <Font name="Sitka Text" size="29.0" />
+               </font>
+            </Label>
+         </children>
+      </HBox>
+      <ImageView fitHeight="51.0" fitWidth="47.0" layoutX="912.0" layoutY="252.0" pickOnBounds="true" preserveRatio="true">
+         <image>
+            <Image url="@../icons/—Pngtree—colorful%20cocktail%20martini%20glass_3570052.png" />
+         </image>
+      </ImageView>
+      <TextField fx:id="txtsearchId" layoutX="592.0" layoutY="41.0" onAction="#btnSearchOnAction" prefHeight="39.0" prefWidth="350.0" promptText="Search CustomerID" style="-fx-border-color: #8B7E74; -fx-background-radius: 1em; -fx-border-radius: 1em;">
+         <font>
+            <Font name="System Bold" size="12.0" />
+         </font>
+      </TextField>
+      <ImageView layoutX="900.0" layoutY="46.0">
+         <image>
+            <Image url="@../../../../../../../resorces/icons8-search-30.png" />
+         </image>
+      </ImageView>
+      <Label alignment="CENTER" layoutX="85.0" layoutY="42.0" prefHeight="38.0" prefWidth="322.0" text="Customer Form" textFill="#f2b600">
+         <font>
+            <Font name="Georgia" size="23.0" />
+         </font>
+      </Label>
+    </children>
+</AnchorPane>

@@ -1,0 +1,150 @@
+<?xml version="1.0" encoding="UTF-8"?>
+
+<?import com.jfoenix.controls.JFXButton?>
+<?import java.lang.String?>
+<?import java.net.URL?>
+<?import javafx.scene.Cursor?>
+<?import javafx.scene.control.ComboBox?>
+<?import javafx.scene.control.Label?>
+<?import javafx.scene.control.TableColumn?>
+<?import javafx.scene.control.TableView?>
+<?import javafx.scene.control.TextField?>
+<?import javafx.scene.image.Image?>
+<?import javafx.scene.image.ImageView?>
+<?import javafx.scene.layout.AnchorPane?>
+<?import javafx.scene.layout.HBox?>
+<?import javafx.scene.shape.Rectangle?>
+<?import javafx.scene.text.Font?>
+
+<AnchorPane fx:id="root" prefHeight="700.0" prefWidth="1168.0" style="-fx-background-color: #092635;" xmlns="http://javafx.com/javafx/21" xmlns:fx="http://javafx.com/fxml/1" fx:controller="lk.Ijse.controller.employeeController">
+    <children>
+      <Rectangle arcHeight="53.0" arcWidth="59.0" fill="#eaf5ff0a" height="648.0" layoutX="24.0" layoutY="22.0" stroke="#9e9e9e" strokeType="INSIDE" strokeWidth="3.0" width="416.0" />
+        <TextField fx:id="txtsearchId" layoutX="529.0" layoutY="34.0" onAction="#txtSearchOnAction" prefHeight="39.0" prefWidth="350.0" promptText="Search EmployeeID" style="-fx-background-radius: 1em; -fx-border-radius: 1em; -fx-border-color: #8B7E74;">
+            <font>
+                <Font name="System Bold" size="12.0" />
+            </font></TextField>
+        <TableView fx:id="tblemployee" editable="true" layoutX="516.0" layoutY="355.0" prefHeight="254.0" prefWidth="607.0">
+            <columns>
+                <TableColumn fx:id="colempId" prefWidth="90.39996337890625" text="Employee ID" />
+                <TableColumn fx:id="colempName" prefWidth="171.20001220703125" text="Name" />
+                <TableColumn fx:id="colempTel" prefWidth="133.60003662109375" text="Contact Number" />
+                <TableColumn fx:id="colempRole" prefWidth="111.199951171875" text="Role" />
+            <TableColumn fx:id="colempSalary" prefWidth="198.40008544921875" text="Salary" />
+            </columns>
+         <stylesheets>
+            <URL value="@../icons/fullpackstyling.css" />
+            <URL value="@../icons/Tablechatstyling.css" />
+         </stylesheets>
+         <styleClass>
+            <String fx:value="table-row-cell" />
+            <String fx:value="table-view" />
+            <String fx:value="table-header" />
+            <String fx:value="table-row-cell" />
+         </styleClass>
+        </TableView>
+        <ImageView layoutX="837.0" layoutY="39.0">
+            <image>
+                <Image url="@../../../../../../../resorces/icons8-search-30.png" />
+            </image>
+        </ImageView>
+        <JFXButton id="button" buttonType="RAISED" layoutX="252.0" layoutY="496.0" onAction="#btnUpdateOnAction" prefHeight="30.0" prefWidth="118.0" style="-fx-background-color: #FF9800;" stylesheets="@../icons/button.css" text="Update" textFill="#f7f7f7">
+            <font>
+                <Font name="Arial Bold" size="18.0" />
+            </font>
+            <graphic>
+                <ImageView fitHeight="24.0" fitWidth="29.0">
+                    <image>
+                        <Image url="@../../../../../../../resorces/icons8-clear-30 (1).png" />
+                    </image>
+                </ImageView>
+            </graphic>
+            <cursor>
+                <Cursor fx:constant="HAND" />
+            </cursor>
+        </JFXButton>
+        <JFXButton id="button" buttonType="RAISED" layoutX="93.0" layoutY="496.0" onAction="#btnSaveOnAction" prefHeight="34.0" prefWidth="118.0" style="-fx-background-color: #38E54D;" stylesheets="@../icons/button.css" text="Save" textFill="WHITE" textOverrun="LEADING_WORD_ELLIPSIS" wrapText="true">
+            <font>
+                <Font name="Arial Bold" size="18.0" />
+            </font>
+            <graphic>
+                <ImageView fitHeight="24.0" fitWidth="23.0">
+                    <image>
+                        <Image url="@../../../../../../../resorces/icons8-add-user-male-30.png" />
+                    </image>
+                </ImageView>
+            </graphic>
+            <cursor>
+                <Cursor fx:constant="HAND" />
+            </cursor>
+        </JFXButton>
+        <JFXButton id="button" buttonType="RAISED" layoutX="93.0" layoutY="558.0" onAction="#btnClearOnAction" prefHeight="22.0" prefWidth="118.0" style="-fx-background-color: #7077A1;" stylesheets="@../icons/button.css" text="Clear" textFill="WHITE">
+            <font>
+                <Font name="Arial Bold" size="18.0" />
+            </font>
+            <graphic>
+                <ImageView fitHeight="24.0" fitWidth="29.0">
+                    <image>
+                        <Image url="@../../../../../../../resorces/icons8-clear-30.png" />
+                    </image>
+                </ImageView>
+            </graphic>
+            <cursor>
+                <Cursor fx:constant="HAND" />
+            </cursor></JFXButton>
+        <JFXButton id="button" buttonType="RAISED" layoutX="252.0" layoutY="558.0" onAction="#btnDeleteOnAction" prefHeight="30.0" prefWidth="118.0" style="-fx-background-color: #FF004D;" stylesheets="@../icons/button.css" text="Delete" textFill="#f7f7f7">
+            <font>
+                <Font name="Arial Bold" size="18.0" />
+            </font>
+            <cursor>
+                <Cursor fx:constant="HAND" />
+            </cursor>
+            <graphic>
+                <ImageView fitHeight="22.0" fitWidth="23.0">
+                    <image>
+                        <Image url="@../icons/icons8-delete-50.png" />
+                    </image>
+                </ImageView>
+            </graphic>
+        </JFXButton>
+        <ImageView fitHeight="150.0" fitWidth="200.0" layoutX="652.0" layoutY="88.0" pickOnBounds="true" preserveRatio="true">
+            <image>
+                <Image url="@../icons/—Pngtree—colorful%20cocktail%20martini%20glass_3570052.png" />
+            </image>
+        </ImageView>
+      <TextField fx:id="txtId" layoutX="100.0" layoutY="124.0" onKeyReleased="#txtEmployeeIDOnKeyReleased" prefHeight="34.0" prefWidth="265.0" promptText="Employee ID" style="-fx-border-color: #8B7E74; -fx-border-radius: 1em; -fx-background-radius: 1em;" />
+      <TextField fx:id="txtName" layoutX="99.0" layoutY="191.0" onKeyPressed="#txtNameOnKeyReleased" prefHeight="34.0" prefWidth="266.0" promptText="Employee Name" style="-fx-border-color: #8B7E74; -fx-border-radius: 1em; -fx-background-radius: 1em;" />
+      <TextField fx:id="txttel" layoutX="99.0" layoutY="254.0" onKeyReleased="#txtContactOnKeyReleased" prefHeight="34.0" prefWidth="266.0" promptText="Employee Contact" style="-fx-border-color: #8B7E74; -fx-border-radius: 1em; -fx-background-radius: 1em;" />
+      <ComboBox fx:id="cmbEmpRole" layoutX="99.0" layoutY="398.0" onAction="#EmpRoleOnAction" prefHeight="34.0" prefWidth="266.0" promptText="Employee Role" style="-fx-border-color: #8B7E74; -fx-border-radius: 1em; -fx-background-radius: 1em;" />
+      <HBox layoutX="587.0" layoutY="233.0">
+         <children>
+            <Label prefHeight="34.0" prefWidth="95.0" text="COCKT" textFill="#ffc74e" translateY="-3.0">
+               <font>
+                  <Font name="Sitka Text" size="29.0" />
+               </font>
+            </Label>
+            <Label prefHeight="33.0" prefWidth="132.0" text="AIL  HUB" textFill="#717100" translateY="-3.0">
+               <font>
+                  <Font name="Sitka Text" size="29.0" />
+               </font>
+            </Label>
+         </children>
+      </HBox>
+      <ImageView fitHeight="51.0" fitWidth="47.0" layoutX="802.0" layoutY="218.0" pickOnBounds="true" preserveRatio="true">
+         <image>
+            <Image url="@../icons/—Pngtree—colorful%20cocktail%20martini%20glass_3570052.png" />
+         </image>
+      </ImageView>
+      <TextField fx:id="txtSalary" layoutX="99.0" layoutY="323.0" onKeyReleased="#txtSalaryOnKeyReleased" prefHeight="34.0" prefWidth="266.0" promptText="Employee Salary" style="-fx-border-color: #8B7E74; -fx-border-radius: 1em; -fx-background-radius: 1em;">
+         <font>
+            <Font name="Arial Bold" size="12.0" />
+         </font></TextField>
+      <Label alignment="CENTER" layoutX="71.0" layoutY="52.0" prefHeight="38.0" prefWidth="322.0" text="EmpLoyee Form" textFill="#f2b600">
+         <font>
+            <Font name="Georgia" size="23.0" />
+         </font>
+      </Label>
+    </children>
+   <cursor>
+      <Cursor fx:constant="OPEN_HAND" />
+   </cursor>
+</AnchorPane>

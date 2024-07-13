@@ -1,0 +1,93 @@
+<?xml version="1.0" encoding="UTF-8"?>
+
+<?import java.lang.String?>
+<?import javafx.scene.chart.CategoryAxis?>
+<?import javafx.scene.chart.LineChart?>
+<?import javafx.scene.chart.NumberAxis?>
+<?import javafx.scene.control.Label?>
+<?import javafx.scene.image.Image?>
+<?import javafx.scene.image.ImageView?>
+<?import javafx.scene.layout.AnchorPane?>
+<?import javafx.scene.text.Font?>
+
+<AnchorPane fx:id="root" prefHeight="700.0" prefWidth="1168.0" style="-fx-background-color: #C4BBF0;" xmlns="http://javafx.com/javafx/21" xmlns:fx="http://javafx.com/fxml/1" fx:controller="lk.Ijse.controller.DashboardController">
+   <children>
+      <LineChart fx:id="BarChart" layoutX="95.0" layoutY="264.0" style="-fx-background-color: transparent;">
+        <xAxis>
+          <CategoryAxis side="BOTTOM" />
+        </xAxis>
+        <yAxis>
+          <NumberAxis side="LEFT" />
+        </yAxis>
+      </LineChart>
+      <AnchorPane layoutX="66.0" layoutY="37.0" prefHeight="200.0" prefWidth="200.0" stylesheets="@../icons/friutCss.css">
+         <styleClass>
+            <String fx:value="shadow" />
+            <String fx:value="shopping-online-card" />
+         </styleClass>
+         <children>
+            <Label layoutX="33.0" layoutY="61.0" prefHeight="38.0" prefWidth="145.0" text="User Count" textFill="#ffeeee">
+               <font>
+                  <Font name="System Bold" size="24.0" />
+               </font>
+            </Label>
+            <Label fx:id="lblUserCount" layoutX="69.0" layoutY="100.0" prefHeight="38.0" prefWidth="61.0" textFill="#ffeeee">
+               <font>
+                  <Font name="System Bold" size="24.0" />
+               </font>
+            </Label>
+            <ImageView fitHeight="47.0" fitWidth="61.0" layoutX="76.0" layoutY="14.0" pickOnBounds="true" preserveRatio="true">
+               <image>
+                  <Image url="@../icons/icons8-user-64.png" />
+               </image>
+            </ImageView>
+         </children>
+      </AnchorPane>
+      <AnchorPane layoutX="346.0" layoutY="37.0" prefHeight="200.0" prefWidth="200.0" stylesheets="@../icons/friutCss.css">
+         <styleClass>
+            <String fx:value="shadow" />
+            <String fx:value="shopping-online-card" />
+         </styleClass>
+         <children>
+            <Label layoutX="6.0" layoutY="61.0" prefHeight="38.0" prefWidth="187.0" text="EmployeeCount" textFill="#ffeeee">
+               <font>
+                  <Font name="System Bold" size="24.0" />
+               </font>
+            </Label>
+            <Label fx:id="lblEmployeeCount" layoutX="69.0" layoutY="100.0" prefHeight="38.0" prefWidth="61.0" textFill="#ffeeee">
+               <font>
+                  <Font name="System Bold" size="24.0" />
+               </font>
+            </Label>
+            <ImageView fitHeight="47.0" fitWidth="67.0" layoutX="77.0" layoutY="14.0" pickOnBounds="true" preserveRatio="true">
+               <image>
+                  <Image url="@../icons/icons8-employee-64.png" />
+               </image>
+            </ImageView>
+         </children>
+      </AnchorPane>
+      <AnchorPane layoutX="635.0" layoutY="37.0" prefHeight="200.0" prefWidth="200.0" stylesheets="@../icons/friutCss.css">
+         <styleClass>
+            <String fx:value="shadow" />
+            <String fx:value="shopping-online-card" />
+         </styleClass>
+         <children>
+            <Label layoutX="19.0" layoutY="57.0" prefHeight="33.0" prefWidth="162.0" text="Order Count" textFill="#ffeeee">
+               <font>
+                  <Font name="System Bold" size="24.0" />
+               </font>
+            </Label>
+            <Label fx:id="lblOrderCount" layoutX="68.0" layoutY="93.0" prefHeight="38.0" prefWidth="61.0" textFill="#ffeeee">
+               <font>
+                  <Font name="System Bold" size="24.0" />
+               </font>
+            </Label>
+            <ImageView fitHeight="33.0" fitWidth="33.0" layoutX="82.0" layoutY="14.0" pickOnBounds="true" preserveRatio="true">
+               <image>
+                  <Image url="@../icons/icons8-cart-64%20(1).png" />
+               </image>
+            </ImageView>
+         </children>
+      </AnchorPane>
+   </children>
+</AnchorPane>

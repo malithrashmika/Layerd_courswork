@@ -1,0 +1,16 @@
+.button {
+-fx-background-color: linear-gradient(from 0.0% 0.0% to 100.0% 100.0%, rgba(0,177,255,0.9557072829131653) 0.0%, rgba(149,0,255,0.9697128851540616) 100.0%);
+
+-fx-background-radius: 5,5,4;
+}
+
+.button:hover
+{
+-fx-background-color :#94FFD8;
+
+}
+.button:pressed
+{
+-fx-background-color :#16FF00 ;
+     -fx-background-insets: 2 0 0 0,2 0 3 0,2 0 4 0,2 0 5 0;
+}

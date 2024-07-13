@@ -1,0 +1,25 @@
+.post-background{
+     -fx-background-color: #fff;
+  -fx-background-radius: 15;
+    -fx-effect: dropShadow(three-pass-box, rgba(0,0,0,1),5.0,0.0,0.0,5.0);
+}
+.reactions-container{
+     -fx-background-color: #fff;
+   -fx-background-radius: 50;
+     -fx-effect: dropShadow(three-pass-box, rgba(0,0,0,1),5.0,0.0,0.0,5.0);
+     -fx-border-width: 1;
+-fx-border-color: #B8B9BB;
+-fx-border-radius: 50;
+}
+.round-button{
+     -fx-background-color: #F8F2F5;
+    -fx-background-radius: 58;
+}
+.white-background{
+     -fx-background-color: #fff;
+}
+.body-background{
+     -fx-background: rgb(255,155,122);
+     -fx-border-color: #686266;
+     -fx-background-image: linear-gradient(to top, #fbc2eb 0%, #a6c1ee 100%);
+}

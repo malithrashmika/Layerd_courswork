@@ -1,0 +1,80 @@
+<?xml version="1.0" encoding="UTF-8"?>
+
+<?import com.jfoenix.controls.JFXButton?>
+<?import javafx.scene.Cursor?>
+<?import javafx.scene.control.Label?>
+<?import javafx.scene.control.TextField?>
+<?import javafx.scene.image.Image?>
+<?import javafx.scene.image.ImageView?>
+<?import javafx.scene.layout.AnchorPane?>
+<?import javafx.scene.text.Font?>
+<?import javafx.scene.text.Text?>
+
+<AnchorPane fx:id="rootNode" prefHeight="559.0" prefWidth="779.0" xmlns="http://javafx.com/javafx/21" xmlns:fx="http://javafx.com/fxml/1" fx:controller="lk.Ijse.controller.registerformController">
+    <children>
+
+                <AnchorPane prefHeight="559.0" prefWidth="541.0">
+                    <children>
+                        <ImageView fitHeight="559.0" fitWidth="547.0" layoutX="-1.0" style="-fx-opacity: 0.85;">
+                            <image>
+                                <Image url="@../icons/pexels-roshan-ravi-15047644.jpg" />
+                            </image>
+                        </ImageView>
+                        <Label layoutX="370.0" layoutY="21.0" prefHeight="60.0" prefWidth="183.0" text="COCKT" textFill="WHITE">
+                            <font>
+                                <Font name="Sitka Text" size="53.0" />
+                            </font>
+                        </Label>
+                  <JFXButton buttonType="RAISED" layoutX="29.0" layoutY="21.0" onAction="#btnBackOnAction" prefHeight="26.0" prefWidth="26.0">
+                     <graphic>
+                        <ImageView fitHeight="34.0" fitWidth="32.0">
+                           <image>
+                              <Image url="@../../../../../../../resorces/icons8-back-50 (1).png" />
+                           </image>
+                        </ImageView>
+                     </graphic>
+                     <cursor>
+                        <Cursor fx:constant="HAND" />
+                     </cursor>
+                  </JFXButton>
+                    </children>
+                </AnchorPane>
+                <Label layoutX="544.0" layoutY="19.0" prefHeight="66.0" prefWidth="230.0" text="AIL  HUB" textFill="#717100">
+                    <font>
+                        <Font name="Sitka Text" size="53.0" />
+                    </font>
+                </Label>
+                <TextField fx:id="txtUserId" layoutX="564.0" layoutY="183.0" prefHeight="26.0" prefWidth="218.0" promptText="Username" />
+                <TextField fx:id="txtemail" layoutX="564.0" layoutY="264.0" prefHeight="26.0" prefWidth="218.0" promptText="e-mail" />
+                <JFXButton fx:id="registerbtn" buttonType="RAISED" layoutX="564.0" layoutY="457.0" onAction="#btnRegisterOnAction" prefHeight="32.0" prefWidth="200.0" style="-fx-background-color: d4af37;" text="Register" textFill="WHITE">
+                    <font>
+                        <Font name="System Bold" size="15.0" />
+                    </font>
+                    <cursor>
+                        <Cursor fx:constant="HAND" />
+                    </cursor>
+                </JFXButton>
+                <Text layoutX="573.0" layoutY="173.0" strokeType="OUTSIDE" strokeWidth="0.0" text="Username" wrappingWidth="78.64410400390625">
+                    <font>
+                        <Font name="System Bold Italic" size="12.0" />
+                    </font>
+                </Text>
+                <Text layoutX="573.0" layoutY="253.0" strokeType="OUTSIDE" strokeWidth="0.0" text="E-mail" wrappingWidth="78.64410400390625">
+                    <font>
+                        <Font name="System Bold Italic" size="12.0" />
+                    </font>
+                </Text>
+                <Label alignment="CENTER" layoutX="593.0" layoutY="94.0" prefHeight="35.0" prefWidth="142.0" style="-fx-font-family: Luminari, fantasy;" text="Register" textFill="#696464" textOverrun="CLIP" underline="true">
+                    <font>
+                        <Font name="Gadugi" size="24.0" />
+                    </font>
+                </Label>
+            <TextField fx:id="txtPw" layoutX="564.0" layoutY="345.0" onAction="#pwOnAction" prefHeight="26.0" prefWidth="218.0" promptText="Password" />
+            <Text layoutX="573.0" layoutY="334.0" strokeType="OUTSIDE" strokeWidth="0.0" text="Password" wrappingWidth="78.64410400390625">
+               <font>
+                  <Font name="System Bold Italic" size="12.0" />
+               </font>
+            </Text>
+
+    </children>
+</AnchorPane>

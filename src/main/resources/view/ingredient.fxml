@@ -1,0 +1,145 @@
+<?xml version="1.0" encoding="UTF-8"?>
+
+<?import com.jfoenix.controls.JFXButton?>
+<?import java.lang.String?>
+<?import java.net.URL?>
+<?import javafx.scene.Cursor?>
+<?import javafx.scene.control.ComboBox?>
+<?import javafx.scene.control.Label?>
+<?import javafx.scene.control.TableColumn?>
+<?import javafx.scene.control.TableView?>
+<?import javafx.scene.control.TextField?>
+<?import javafx.scene.image.Image?>
+<?import javafx.scene.image.ImageView?>
+<?import javafx.scene.layout.AnchorPane?>
+<?import javafx.scene.layout.HBox?>
+<?import javafx.scene.shape.Rectangle?>
+<?import javafx.scene.text.Font?>
+
+<AnchorPane fx:id="root" prefHeight="700.0" prefWidth="1168.0" style="-fx-background-color: #2A2438;" xmlns="http://javafx.com/javafx/21" xmlns:fx="http://javafx.com/fxml/1" fx:controller="lk.Ijse.controller.ingredientController">
+   <children>
+      <Rectangle arcHeight="53.0" arcWidth="59.0" fill="#eaf5ff0a" height="648.0" layoutX="44.0" layoutY="42.0" stroke="#9e9e9e" strokeType="INSIDE" strokeWidth="3.0" style="-fx-effect: dropShadow(three-pass-box,rgba(0,0,0,0.1), 10.0 , 0.0 , 0.0 ,10.0);;" width="416.0" />
+      <TextField fx:id="txtInid" layoutX="140.0" layoutY="167.0" prefHeight="30.0" prefWidth="222.0" promptText="Ingredient ID" style="-fx-border-color: #635666; -fx-background-radius: 1em; -fx-border-radius: 1em;" styleClass="text" stylesheets="@../icons/fullpackstyling.css" />
+      <TextField fx:id="txtInName" layoutX="140.0" layoutY="234.0" prefHeight="30.0" prefWidth="222.0" promptText="Name" style="-fx-border-color: #635666; -fx-background-radius: 1em; -fx-border-radius: 1em;" styleClass="text" stylesheets="@../icons/fullpackstyling.css" />
+      <TextField fx:id="txtInUnitPrice" layoutX="140.0" layoutY="301.0" prefHeight="30.0" prefWidth="222.0" promptText="Unit_Price" style="-fx-border-color: #635666; -fx-background-radius: 1em; -fx-border-radius: 1em;" styleClass="text" stylesheets="@../icons/fullpackstyling.css" />
+      <TextField fx:id="txtInQty_avalible" layoutX="141.0" layoutY="360.0" prefHeight="30.0" prefWidth="222.0" promptText="qty_available" style="-fx-border-color: #635666; -fx-background-radius: 1em; -fx-border-radius: 1em;" styleClass="text" stylesheets="@../icons/fullpackstyling.css" />
+      <ComboBox fx:id="cmbInCategory" layoutX="141.0" layoutY="416.0" onAction="#cmbInCategoryOnAction" prefHeight="30.0" prefWidth="222.0" promptText="Category" style="-fx-border-color: #635666; -fx-background-radius: 1em; -fx-border-radius: 1em;" />
+      <ComboBox fx:id="cmbISupplier" layoutX="140.0" layoutY="480.0" onAction="#cmbSupplierOnAction" prefHeight="30.0" prefWidth="222.0" promptText="Supplier_ID" style="-fx-border-color: #635666; -fx-background-radius: 1em; -fx-border-radius: 1em;" />
+      <JFXButton id="button" buttonType="RAISED" layoutX="85.0" layoutY="546.0" onAction="#btnSaveOnAction" prefHeight="34.0" prefWidth="118.0" style="-fx-background-color: #38E54D;" stylesheets="@../icons/button.css" text="Save" textFill="WHITE" textOverrun="LEADING_WORD_ELLIPSIS" wrapText="true">
+         <font>
+            <Font name="Arial Bold" size="18.0" />
+         </font>
+         <graphic>
+            <ImageView fitHeight="24.0" fitWidth="23.0">
+               <image>
+                  <Image url="@../../../../../../../resorces/icons8-add-user-male-30.png" />
+               </image>
+            </ImageView>
+         </graphic>
+         <cursor>
+            <Cursor fx:constant="HAND" />
+         </cursor>
+      </JFXButton>
+      <JFXButton id="button" buttonType="RAISED" layoutX="298.0" layoutY="546.0" onAction="#btnClearOnAction" prefHeight="22.0" prefWidth="118.0" style="-fx-background-color: #7077A1;" stylesheets="@../icons/button.css" text="Clear" textFill="WHITE">
+         <font>
+            <Font name="Arial Bold" size="18.0" />
+         </font>
+         <graphic>
+            <ImageView fitHeight="24.0" fitWidth="29.0">
+               <image>
+                  <Image url="@../../../../../../../resorces/icons8-clear-30.png" />
+               </image>
+            </ImageView>
+         </graphic>
+         <cursor>
+            <Cursor fx:constant="HAND" />
+         </cursor>
+      </JFXButton>
+      <JFXButton id="button" buttonType="RAISED" layoutX="85.0" layoutY="602.0" onAction="#btnDeleteOnAction" prefHeight="30.0" prefWidth="118.0" style="-fx-background-color: #FF004D;" stylesheets="@../icons/button.css" text="Delete" textFill="#f7f7f7">
+         <font>
+            <Font name="Arial Bold" size="18.0" />
+         </font>
+         <cursor>
+            <Cursor fx:constant="HAND" />
+         </cursor>
+         <graphic>
+            <ImageView fitHeight="22.0" fitWidth="23.0">
+               <image>
+                  <Image url="@../icons/icons8-delete-50.png" />
+               </image>
+            </ImageView>
+         </graphic>
+      </JFXButton>
+      <JFXButton buttonType="RAISED" layoutX="298.0" layoutY="601.0" onAction="#btnUpdateOnAction" prefHeight="35.0" prefWidth="118.0" style="-fx-background-color: #FF9800;" text="Update" textFill="WHITE">
+         <font>
+            <Font name="Arial Bold" size="18.0" />
+         </font>
+         <graphic>
+            <ImageView fitHeight="24.0" fitWidth="24.0">
+               <image>
+                  <Image url="@../icons/icons8-clear-30%20(1).png" />
+               </image>
+            </ImageView>
+         </graphic>
+      </JFXButton>
+      <TableView fx:id="tblIngredients" layoutX="502.0" layoutY="328.0" prefHeight="238.0" prefWidth="618.0">
+        <columns>
+          <TableColumn fx:id="colIid" text="Ingredient ID" />
+          <TableColumn fx:id="colIName" prefWidth="124.800048828125" text="Name" />
+            <TableColumn fx:id="colIUnitPrice" prefWidth="100.7999267578125" text="Unit_Price" />
+            <TableColumn fx:id="colIiqty" prefWidth="112.0" text="qty_available" />
+            <TableColumn fx:id="coliCategory" prefWidth="103.199951171875" text="Category" />
+            <TableColumn fx:id="colSupplier" prefWidth="90.4000244140625" text="Supplier_ID" />
+        </columns>
+         <stylesheets>
+            <URL value="@../icons/fullpackstyling.css" />
+            <URL value="@../icons/Tablechatstyling.css" />
+         </stylesheets>
+         <styleClass>
+            <String fx:value="column-header" />
+            <String fx:value="table-header" />
+            <String fx:value="table-row-cell" />
+            <String fx:value="table-view" />
+         </styleClass>
+      </TableView>
+      <HBox layoutX="618.0" layoutY="260.0">
+         <children>
+            <Label prefHeight="34.0" prefWidth="95.0" text="COCKT" textFill="#ffc74e" translateY="-3.0">
+               <font>
+                  <Font name="Sitka Text" size="29.0" />
+               </font>
+            </Label>
+            <Label prefHeight="33.0" prefWidth="132.0" text="AIL  HUB" textFill="#717100" translateY="-3.0">
+               <font>
+                  <Font name="Sitka Text" size="29.0" />
+               </font>
+            </Label>
+         </children>
+      </HBox>
+      <ImageView fitHeight="150.0" fitWidth="200.0" layoutX="684.0" layoutY="110.0" pickOnBounds="true" preserveRatio="true">
+         <image>
+            <Image url="@../icons/—Pngtree—colorful%20cocktail%20martini%20glass_3570052.png" />
+         </image>
+      </ImageView>
+      <ImageView fitHeight="51.0" fitWidth="47.0" layoutX="833.0" layoutY="241.0" pickOnBounds="true" preserveRatio="true">
+         <image>
+            <Image url="@../icons/—Pngtree—colorful%20cocktail%20martini%20glass_3570052.png" />
+         </image>
+      </ImageView>
+      <TextField fx:id="txtsearchId" layoutX="608.0" layoutY="37.0" onAction="#btnSearchOnAction" prefHeight="39.0" prefWidth="350.0" promptText="Search CustomerID" style="-fx-border-color: #635666; -fx-background-radius: 1em; -fx-border-radius: 1em;">
+         <font>
+            <Font name="System Bold" size="12.0" />
+         </font>
+      </TextField>
+      <ImageView layoutX="917.0" layoutY="42.0">
+         <image>
+            <Image url="@../../../../../../../resorces/icons8-search-30.png" />
+         </image>
+      </ImageView>
+      <Label alignment="CENTER" layoutX="91.0" layoutY="72.0" prefHeight="38.0" prefWidth="322.0" text="Ingredient  Form" textFill="#f2b600">
+         <font>
+            <Font name="Georgia" size="23.0" />
+         </font>
+      </Label>
+   </children>
+</AnchorPane>

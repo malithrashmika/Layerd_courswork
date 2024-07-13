@@ -1,0 +1,5 @@
+.textField{
+ -fx-background-color: transparent;
+ -fx-background-radius: 2em;
+ -fx-font-color: #3E3232;
+}
