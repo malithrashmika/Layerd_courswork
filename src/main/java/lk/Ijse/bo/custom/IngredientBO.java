@@ -18,5 +18,4 @@ public interface IngredientBO extends SuperBO {
 
     public boolean exist(String id) throws SQLException, ClassNotFoundException ;
 
-    public IngredientDTO search(String id) throws SQLException, ClassNotFoundException;
 }

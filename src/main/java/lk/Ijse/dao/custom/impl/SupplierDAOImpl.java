@@ -2,9 +2,8 @@ package lk.Ijse.dao.custom.impl;
 
 import lk.Ijse.dao.SQLUtil;
 import lk.Ijse.dao.custom.SupplierDAO;
-import lk.Ijse.dto.ReservationDTO;
+import lk.Ijse.entity.Item;
 import lk.Ijse.entity.Supplier;
-import lk.Ijse.model.SupplierDTO;
 
 import java.sql.ResultSet;
 import java.sql.SQLException;
@@ -26,7 +25,7 @@ public class SupplierDAOImpl implements SupplierDAO {
 
 
     @Override
-    public boolean add(SupplierDTO dto) throws SQLException, ClassNotFoundException {
+    public boolean add(Supplier dto) throws SQLException, ClassNotFoundException {
         return SQLUtil.execute("INSERT INTO supplier (id,name,contact,email) VALUES (?,?,?,?)", dto.getSupplierId(),dto.getSupplierName(),dto.getContactNumber(),dto.getContactEmail());
 
     }

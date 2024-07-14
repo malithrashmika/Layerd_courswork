@@ -2,8 +2,8 @@ package lk.Ijse.dao.custom.impl;
 
 import lk.Ijse.dao.SQLUtil;
 import lk.Ijse.dao.custom.EmployeeDAO;
-import lk.Ijse.dto.ReservationDTO;
 import lk.Ijse.entity.Employee;
+import lk.Ijse.entity.Item;
 import lk.Ijse.model.EmployeeDTO;
 
 import java.sql.ResultSet;
@@ -12,12 +12,12 @@ import java.util.ArrayList;
 
 public class EmployeeDAOImpl implements EmployeeDAO {
     @Override
-    public ArrayList<EmployeeDTO> getAll() throws SQLException, ClassNotFoundException {
-        ArrayList<EmployeeDTO> allEmployees = new ArrayList<>();
+    public ArrayList<Employee> getAll() throws SQLException, ClassNotFoundException {
+        ArrayList<Employee> allEmployees = new ArrayList<>();
         ResultSet rst = SQLUtil.execute(" SELECT * FROM employee;");
         while (rst.next()) {
-            EmployeeDTO employeeDTO = new EmployeeDTO(rst.getString("id"),rst.getString("name"),rst.getString("Tel"),rst.getString("salary"),rst.getString("Role"));
-            allEmployees.add(employeeDTO);
+            Employee employee = new Employee(rst.getString("id"),rst.getString("name"),rst.getString("Tel"),rst.getString("salary"),rst.getString("Role"));
+            allEmployees.add(employee);
         }
         return allEmployees;
     }
@@ -25,11 +25,6 @@ public class EmployeeDAOImpl implements EmployeeDAO {
     @Override
     public boolean add(Employee dto) throws SQLException, ClassNotFoundException {
         return SQLUtil.execute("INSERT INTO Employee (id,name, Tel, salary, Role) VALUES (?,?,?,?,?)", dto.getId(), dto.getName(), dto.getTel(), dto.getSalary(), dto.getRole());
-    }
-
-    @Override
-    public boolean update(EmployeeDTO dto) throws SQLException, ClassNotFoundException {
-        return false;
     }
 
     @Override
@@ -63,7 +58,7 @@ public class EmployeeDAOImpl implements EmployeeDAO {
     }
 
     @Override
-    public ReservationDTO search(String id) throws SQLException, ClassNotFoundException {
+    public Employee search(String id) throws SQLException, ClassNotFoundException {
         ResultSet rst = SQLUtil.execute("SELECT * FROM Employee WHERE id=?", id + "");
         rst.next();
         return new Employee(id + "", rst.getString("name"), rst.getString("Tel"), rst.getString("salary"), rst.getString("Role"));

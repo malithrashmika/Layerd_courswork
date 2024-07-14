@@ -1,6 +1,5 @@
 package lk.Ijse.dao;
 
-import lk.Ijse.bo.custom.impl.QueryDAOImpl;
 import lk.Ijse.dao.custom.impl.*;
 
 public class DAOFactory {

@@ -1,6 +1,6 @@
 package lk.Ijse.dao;
 
-import lk.Ijse.dto.ReservationDTO;
+import lk.Ijse.entity.Item;
 
 import java.sql.SQLException;
 import java.util.ArrayList;
@@ -12,6 +12,6 @@ public interface CrudDAO <T> extends SuperDAO {
     public boolean exist(String id) throws SQLException, ClassNotFoundException;
     public String generateNewID() throws SQLException, ClassNotFoundException;
     public boolean delete(String id) throws SQLException, ClassNotFoundException;
-    public ReservationDTO search(String id) throws SQLException, ClassNotFoundException;
+    public T search(String id) throws SQLException, ClassNotFoundException;
 
 }

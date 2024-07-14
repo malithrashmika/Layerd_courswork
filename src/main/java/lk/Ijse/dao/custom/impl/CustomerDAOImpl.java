@@ -2,9 +2,9 @@ package lk.Ijse.dao.custom.impl;
 
 import lk.Ijse.dao.SQLUtil;
 import lk.Ijse.dao.custom.CustomerDAO;
-import lk.Ijse.dto.ReservationDTO;
+import lk.Ijse.entity.Customer;
+import lk.Ijse.entity.Item;
 import lk.Ijse.model.CustomerDTO;
-import lk.Ijse.model.SupplierDTO;
 
 import java.sql.ResultSet;
 import java.sql.SQLException;
@@ -13,23 +13,23 @@ import java.util.List;
 
 public class CustomerDAOImpl implements CustomerDAO {
     @Override
-    public ArrayList<SupplierDTO> getAll() throws SQLException, ClassNotFoundException {
-        ArrayList<CustomerDTO> allCustomers = new ArrayList<>();
+    public ArrayList<Customer> getAll() throws SQLException, ClassNotFoundException {
+        ArrayList<Customer> allCustomers = new ArrayList<>();
         ResultSet rst = SQLUtil.execute("SELECT * FROM Customer");
         while (rst.next()) {
-            CustomerDTO customerDTO = new CustomerDTO(rst.getString("id"), rst.getString("name"), rst.getString("email"), rst.getString("phone"));
-            allCustomers.add(customerDTO);
+            Customer customer = new Customer(rst.getString("id"), rst.getString("name"), rst.getString("email"), rst.getString("phone"));
+            allCustomers.add(customer);
         }
         return allCustomers;
     }
 
     @Override
-    public boolean add(CustomerDTO dto) throws SQLException, ClassNotFoundException {
+    public boolean add(Customer dto) throws SQLException, ClassNotFoundException {
         return SQLUtil.execute("INSERT INTO Customer (id,name, address) VALUES (?,?,?)", dto.getId(), dto.getName(), dto.getEmail(),dto.getTel());
     }
 
     @Override
-    public boolean update(CustomerDTO dto) throws SQLException, ClassNotFoundException {
+    public boolean update(Customer dto) throws SQLException, ClassNotFoundException {
         return SQLUtil.execute("UPDATE Customer SET name=?, address=? WHERE id=?", dto.getName(), dto.getEmail(),dto.getTel(), dto.getId());
     }
 
@@ -57,10 +57,10 @@ public class CustomerDAOImpl implements CustomerDAO {
     }
 
     @Override
-    public ReservationDTO search(String id) throws SQLException, ClassNotFoundException {
+    public Customer search(String id) throws SQLException, ClassNotFoundException {
         ResultSet rst = SQLUtil.execute("SELECT * FROM Customer WHERE id=?", id + "");
         rst.next();
-        return new CustomerDTO(id + "", rst.getString("name"), rst.getString("email"), rst.getString("e_Tel"));
+        return new Customer(id + "", rst.getString("name"), rst.getString("email"), rst.getString("e_Tel"));
     }
 
     @Override

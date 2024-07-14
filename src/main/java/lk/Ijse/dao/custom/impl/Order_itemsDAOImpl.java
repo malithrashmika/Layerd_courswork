@@ -2,7 +2,7 @@ package lk.Ijse.dao.custom.impl;
 
 import lk.Ijse.dao.SQLUtil;
 import lk.Ijse.dao.custom.order_itemDAO;
-import lk.Ijse.dto.ReservationDTO;
+import lk.Ijse.entity.Item;
 import lk.Ijse.entity.order_item;
 
 import java.sql.SQLException;
@@ -40,7 +40,7 @@ public class Order_itemsDAOImpl implements order_itemDAO {
     }
 
     @Override
-    public ReservationDTO search(String id) throws SQLException, ClassNotFoundException {
+    public order_item search(String id) throws SQLException, ClassNotFoundException {
         return null;
     }
 }

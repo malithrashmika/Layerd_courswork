@@ -15,6 +15,8 @@ import javafx.scene.control.cell.PropertyValueFactory;
 import javafx.scene.layout.AnchorPane;
 import javafx.stage.Stage;
 
+import lk.Ijse.bo.BOFactory;
+import lk.Ijse.bo.custom.*;
 import lk.Ijse.db.DBConnection;
 import lk.Ijse.db.TableType;
 import lk.Ijse.model.*;
@@ -39,7 +41,11 @@ import java.time.LocalTime;
 import java.util.*;
 
 public class orderFormController implements Initializable {
-
+    CustomerBO customerBO  = (CustomerBO) BOFactory.getBoFactory().getBO(BOFactory.BOTypes.CUSTOMER);
+    EmployeeBO employeeBO = (EmployeeBO) BOFactory.getBoFactory().getBO(BOFactory.BOTypes.Emp);
+    ItemBO itemBO  = (ItemBO) BOFactory.getBoFactory().getBO(BOFactory.BOTypes.ITEM);
+    OrderBO orderBO= (OrderBO) BOFactory.getBoFactory().getBO(BOFactory.BOTypes.ORDER);
+    PlaceOrderBO placeOrderBO= (PlaceOrderBO) BOFactory.getBoFactory().getBO(BOFactory.BOTypes.PO);
     @FXML
     private Label LblUnitPrice;
 
@@ -186,11 +192,11 @@ public class orderFormController implements Initializable {
 
     private void loadNextOrderId() {
         try {
-            String currentId = OrderRepo.getCurrentId();
+            String currentId = orderBO.getCurrentId();
             String nextId = nextId(currentId);
 
             lblOrderID.setText(nextId);
-        } catch (SQLException e) {
+        } catch (SQLException | ClassNotFoundException e) {
             throw new RuntimeException(e);
         }
     }
@@ -207,10 +213,10 @@ public class orderFormController implements Initializable {
     }
     private void getCurrentOrderId() {
         try {
-            String currentId = OrderRepo.getCurrentId();
+            String currentId = orderBO.getCurrentId();
             String nextOrderId = generateNextOrderId(currentId);
             lblOrderID.setText(nextOrderId);
-        } catch (SQLException e) {
+        } catch (SQLException | ClassNotFoundException e) {
             throw new RuntimeException(e);
         }
     }
@@ -236,7 +242,7 @@ public class orderFormController implements Initializable {
     private void getItemCodes() {
         ObservableList<String> obList = FXCollections.observableArrayList();
         try {
-            List<String> codeList = ItemRepo.getcode();
+            List<String> codeList = itemBO.getcode();
             obList.addAll(codeList);
             cmbItemID.setItems(obList);
         } catch (SQLException e) {
@@ -390,7 +396,7 @@ public class orderFormController implements Initializable {
 
 
         PlaceOrderDTO po = new PlaceOrderDTO(orderDTO, odList);
-        boolean isPlaced = PlaceOrderRepo.placeOrder(po);
+        boolean isPlaced = placeOrderBO.purchaseOrder(po);
         if(isPlaced) {
             new Alert(Alert.AlertType.CONFIRMATION, "order placed!").show();
             loadAllOrders();

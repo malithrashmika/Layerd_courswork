@@ -2,38 +2,43 @@ package lk.Ijse.bo.custom.impl;
 
 import lk.Ijse.bo.SuperBO;
 import lk.Ijse.bo.custom.ItemBO;
+import lk.Ijse.dao.DAOFactory;
 import lk.Ijse.dao.custom.ItemDAO;
 import lk.Ijse.dao.custom.SupplierDAO;
 import lk.Ijse.dao.custom.impl.ItemDAOImpl;
 import lk.Ijse.dao.custom.impl.SupplierDAOImpl;
+import lk.Ijse.entity.Item;
 import lk.Ijse.model.ItemDTO;
 
 import java.sql.SQLException;
 import java.util.ArrayList;
 
-public class ItemBOImpl implements ItemBO, SuperBO {
+public class ItemBOImpl implements ItemBO{
+    ItemDAO itemDAO  = (ItemDAO) DAOFactory.getDaoFactory().getDAO(DAOFactory.DAOTypes.ITEM);
     @Override
     public ArrayList<ItemDTO> getAllItems() throws SQLException, ClassNotFoundException {
-        ItemDAO itemDAO = new ItemDAOImpl();
-        return itemDAO.getAll();
+        ArrayList<Item> allEntityData = itemDAO.getAll();
+        ArrayList<ItemDTO> allDTOData= new ArrayList<>();
+        for (Item i : allEntityData) {
+            allDTOData.add(new ItemDTO( i.getCode(),i.getName(),i.getDescription(i.getCategory(i.getPrice(i.getQtyOnHand()));
+        }
+        return allDTOData;
     }
 
     @Override
     public boolean deleteItem(String code) throws SQLException, ClassNotFoundException {
-        ItemDAO itemDAO = new ItemDAOImpl();
         return itemDAO.delete(code);
     }
 
     @Override
     public boolean saveItem(ItemDTO dto) throws SQLException, ClassNotFoundException {
-        ItemDAO itemDAO = new ItemDAOImpl();
-        return itemDAO.add(dto);
+
+        return itemDAO.add(new Item( dto.getCode(),dto.getName(),dto.getDescription(),dto.getCategory(),dto.getPrice(),dto.getQtyOnHand()));
     }
 
     @Override
     public boolean updateItem(ItemDTO dto) throws SQLException, ClassNotFoundException {
-        ItemDAO itemDAO = new ItemDAOImpl();
-        return itemDAO.update(dto);
+        return itemDAO.update(new Item( dto.getCode(),dto.getName(),dto.getDescription(),dto.getCategory(),dto.getPrice(),dto.getQtyOnHand()));
     }
 
     @Override
@@ -48,9 +53,4 @@ public class ItemBOImpl implements ItemBO, SuperBO {
         return itemDAO.generateNewID();
     }
 
-    @Override
-    public ItemDTO search(String id) throws SQLException, ClassNotFoundException {
-        ItemDAO itemDAO= new ItemDAOImpl();
-        return itemDAO.search(id);
-    }
 }

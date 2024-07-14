@@ -2,7 +2,7 @@ package lk.Ijse.dao.custom.impl;
 
 import lk.Ijse.dao.SQLUtil;
 import lk.Ijse.dao.custom.OrderDAO;
-import lk.Ijse.dto.ReservationDTO;
+import lk.Ijse.entity.Item;
 import lk.Ijse.entity.Order;
 
 import java.sql.ResultSet;
@@ -43,7 +43,7 @@ public class OrderDAOImpl implements OrderDAO {
     }
 
     @Override
-    public ReservationDTO search(String id) throws SQLException, ClassNotFoundException {
+    public Order search(String id) throws SQLException, ClassNotFoundException {
         throw new UnsupportedOperationException("This Feature is not implemented yet");
     }
 

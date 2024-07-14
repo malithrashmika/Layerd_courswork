@@ -2,7 +2,7 @@ package lk.Ijse.dao.custom.impl;
 
 import lk.Ijse.dao.SQLUtil;
 import lk.Ijse.dao.custom.ReservationDAO;
-import lk.Ijse.dto.ReservationDTO;
+import lk.Ijse.entity.Item;
 import lk.Ijse.entity.Reservation;
 
 import java.sql.ResultSet;
@@ -11,28 +11,24 @@ import java.util.ArrayList;
 
 public class  ReservationDAOImpl implements ReservationDAO {
     @Override
-    public ArrayList<ReservationDTO> getAll() throws SQLException, ClassNotFoundException {
-        ArrayList<ReservationDTO> allReservation = new ArrayList<>();
+    public ArrayList<Reservation> getAll() throws SQLException, ClassNotFoundException {
+        ArrayList<Reservation> allReservation = new ArrayList<>();
         ResultSet rst = SQLUtil.execute("SELECT * FROM reservation");
         while (rst.next()) {
-            ReservationDTO reservationDTO = new ReservationDTO(rst.getString("reservation_id"),rst.getDate("date_of_reservation"),rst.getDate("reserved_date"),rst.getTime("reserved_time"),rst.getString("employee_id"),rst.getString("table_number"),rst.getString("customer_id"),rst.getString("start_time"),rst.getString("end_time"),rst.getString("event"));
-            allReservation.add(reservationDTO);
+            Reservation reservation = new Reservation(rst.getString("reservation_id"),rst.getDate("date_of_reservation"),rst.getDate("reserved_date"),rst.getTime("reserved_time"),rst.getString("employee_id"),rst.getString("table_number"),rst.getString("customer_id"),rst.getString("start_time"),rst.getString("end_time"),rst.getString("event"));
+            allReservation.add(reservation);
         }
         return allReservation;
     }
 
     @Override
     public boolean add(Reservation dto) throws SQLException, ClassNotFoundException {
-        return false;
+        return SQLUtil.execute("INSERT INTO reservation  VALUES (?, ?, ?, ?, ?, ?, ?, ?, ?, ?)", dto.getReservationId(),dto.getDate_of_reservation(),dto.getReserved_date(),dto.getReserved_time(),dto.getEmployee_id(),dto.getTable_Number(),dto.getCustomer_id(),dto.getStart_time(),dto.getEnd_time(),dto.getEvent());
     }
+
 
     @Override
     public boolean update(Reservation dto) throws SQLException, ClassNotFoundException {
-        return false;
-    }
-
-    @Override
-    public boolean update(ReservationDTO dto) throws SQLException, ClassNotFoundException {
         return SQLUtil.execute("UPDATE reservation SET  date_of_reservation= ?, reserved_date = ?, reserved_time =?,employee_id=?,table_number=?,customer_id=? ,start_time=?,end_time=?,event=?WHERE  reservation_id= ?   ",dto.getDate_of_reservation(),dto.getReserved_date(),dto.getReserved_time(),dto.getEmployee_id(),dto.getTable_Number(),dto.getCustomer_id(),dto.getStart_time(),dto.getEnd_time(),dto.getEvent(),dto.getReservationId());
     }
 
@@ -60,10 +56,10 @@ public class  ReservationDAOImpl implements ReservationDAO {
     }
 
     @Override
-    public ReservationDTO search(String id) throws SQLException, ClassNotFoundException {
+    public Reservation search(String id) throws SQLException, ClassNotFoundException {
         ResultSet rst = SQLUtil.execute("SELECT * FROM reservation WHERE reservation_id=?", id + "");
         rst.next();
-        return new ReservationDTO(id + "",rst.getDate("date_of_reservation"),rst.getDate("reserved_date"),rst.getTime("reserved_time"),rst.getString("employee_id"),rst.getString("table_number"),rst.getString("customer_id"),rst.getString("start_time"),rst.getString("end_time"),rst.getString("event"));
+        return new Reservation(id + "",rst.getDate("date_of_reservation"),rst.getDate("reserved_date"),rst.getTime("reserved_time"),rst.getString("employee_id"),rst.getString("table_number"),rst.getString("customer_id"),rst.getString("start_time"),rst.getString("end_time"),rst.getString("event"));
     }
     @Override
     public String getCurrentId() throws SQLException, ClassNotFoundException {

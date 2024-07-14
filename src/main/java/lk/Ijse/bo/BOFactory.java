@@ -12,7 +12,7 @@ public class BOFactory {
     }
 
     public enum BOTypes{
-        CUSTOMER,ITEM,Emp,SUP,IN,PO,RESERVATION
+        CUSTOMER,ITEM,Emp,SUP,IN,PO,RESERVATION,ORDER
     }
 
     //Object creation logic for BO objects
@@ -24,6 +24,8 @@ public class BOFactory {
                 return new ItemBOImpl();
             case PO:
                 return new PlaceorderBOImpl();
+            case ORDER:
+                return new OrderBOImpl();
             case Emp:
                 return new EmployeeBOImpl();
             case SUP:

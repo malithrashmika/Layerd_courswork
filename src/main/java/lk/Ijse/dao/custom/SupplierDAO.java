@@ -10,5 +10,5 @@ import java.util.ArrayList;
 import java.util.List;
 
 public interface SupplierDAO extends CrudDAO<Supplier> {
-
+    public List<String> getIDS() throws SQLException, ClassNotFoundException;
 }

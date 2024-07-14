@@ -2,8 +2,7 @@ package lk.Ijse.dao.custom.impl;
 
 import lk.Ijse.dao.SQLUtil;
 import lk.Ijse.dao.custom.ItemDAO;
-import lk.Ijse.dto.ReservationDTO;
-import lk.Ijse.model.ItemDTO;
+import lk.Ijse.entity.Item;
 
 import java.sql.ResultSet;
 import java.sql.SQLException;
@@ -11,24 +10,24 @@ import java.util.ArrayList;
 
 public class ItemDAOImpl implements ItemDAO {
     @Override
-    public ArrayList<ItemDTO> getAll() throws SQLException, ClassNotFoundException {
-        ArrayList<ItemDTO> allItems = new ArrayList<>();
+    public ArrayList<Item> getAll() throws SQLException, ClassNotFoundException {
+        ArrayList<Item> allItems = new ArrayList<>();
         ResultSet rst = SQLUtil.execute("SELECT * FROM item");
         while (rst.next()) {
-            ItemDTO itemDTO = new ItemDTO(rst.getString("item_id"),rst.getString("name"),rst.getString("description"),rst.getString("Category"),rst.getDouble("price"),rst.getInt("Qty_On_Hand"));
-            allItems.add(itemDTO);
+            Item item = new Item(rst.getString("item_id"),rst.getString("name"),rst.getString("description"),rst.getString("Category"),rst.getDouble("price"),rst.getInt("Qty_On_Hand"));
+            allItems.add(item);
         }
         return allItems;
     }
 
     @Override
-    public boolean add(ItemDTO dto) throws SQLException, ClassNotFoundException {
+    public boolean add(Item dto) throws SQLException, ClassNotFoundException {
         return SQLUtil.execute("INSERT INTO item (item_id,name,description,Category,price,Qty_On_Hand) VALUES (?,?,?,?,?,?)", dto.getCode(),dto.getName(),dto.getDescription(),dto.getCategory(),dto.getPrice(),dto.getQtyOnHand());
 
     }
 
     @Override
-    public boolean update(ItemDTO dto) throws SQLException, ClassNotFoundException {
+    public boolean update(Item dto) throws SQLException, ClassNotFoundException {
         return SQLUtil.execute("UPDATE item SET name=?,description=?,Category=?,price=?,Qty_On_Hand=? WHERE item_id=?",dto.getName(),dto.getDescription(),dto.getCategory(),dto.getPrice(),dto.getQtyOnHand(),dto.getCode());
     }
 
@@ -56,10 +55,10 @@ public class ItemDAOImpl implements ItemDAO {
     }
 
     @Override
-    public ReservationDTO search(String id) throws SQLException, ClassNotFoundException {
+    public Item search(String id) throws SQLException, ClassNotFoundException {
         ResultSet rst = SQLUtil.execute("SELECT * FROM Item WHERE item_id=?", id + "");
         rst.next();
-        return new ItemDTO(id + "", rst.getString("name"), rst.getString("description"), rst.getString("Category"), rst.getDouble("price"), rst.getInt("Qty_On_Hand"));
+        return new Item(id + "", rst.getString("name"), rst.getString("description"), rst.getString("Category"), rst.getDouble("price"), rst.getInt("Qty_On_Hand"));
     }
 
     @Override
